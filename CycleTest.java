@@ -56,8 +56,8 @@ public class CycleTest extends LinearOpMode {
     @Override
     public void runOpMode(){
         waitForStart();
-        robot.init(hardwareMap);
-        robot.claw.setPosition(0.0);
+        robot.init(hardwareMap);// initiliazing everything(motors, sensors,etc.)
+        robot.claw.setPosition(0.0); 
         /*
         robot.viper.setPower(1.0);
         sleep(600);
@@ -99,7 +99,16 @@ public class CycleTest extends LinearOpMode {
         
         
     }
+  
+  
+  
+  
+  
+  
+  
 
+    // moving functions spin,driving,etc.
+    // negative frontright specific to our robot since the wheel moves backwards
     public void spin(double power){
         power=-power;
         robot.motorFrontLeft.setPower(power);
@@ -169,6 +178,7 @@ public class CycleTest extends LinearOpMode {
         robot.motorBackLeft.setPower(power);
         
     }
+    // shutting down moving motors
     public void CancelPowerRobot(){
         double power=0.0;
         robot.motorFrontLeft.setPower(power);
@@ -176,7 +186,7 @@ public class CycleTest extends LinearOpMode {
         robot.motorBackRight.setPower(-power);
         robot.motorBackLeft.setPower(power);
     }
-    
+    // sleeping
     public void robotsleep(long time){
         sleep(time);
     }
